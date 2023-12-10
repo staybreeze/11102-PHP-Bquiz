@@ -9,20 +9,32 @@
                     <td width="10%">刪除</td>
                 </tr>
                 <?php
-                $rows=$Ad->all();
-                foreach($rows as $row){
+                // 先從資料庫撈資料
+                $rows = $Ad->all();
+                foreach ($rows as $row) {
                 ?>
-                <tr>
-                    <td>
-                        <input type="text" name="text[<?=$row['id'];?>]" style="width:90%" value="<?=$row['text'];?>">
-                    </td>
-                    <td>
-                        <input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>>
-                    </td>
-                    <td>
-                    <input type="checkbox" name="del[]" value="<?=$row['id'];?>">
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                        <!-- 
+                            $_POST['text'][0] => "Some value 1"
+                            $_POST['text'][1] => "Some value 2" 
+                        -->
+                            <input type="text" name="text[<?= $row['id']; ?>]" style="width:90%" value="<?= $row['text']; ?>">
+                        </td>
+                        <td>
+                            <!-- 
+                                $_POST['sh'][0] => "1"
+                                $_POST['sh'][1] => "3" 
+                            -->
+
+                            <!-- 生成一個checked的陣列 -->
+                            
+                            <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
+                        </td>
+                    </tr>
                 <?php
                 }
                 ?>
@@ -31,8 +43,8 @@
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
-                    <input type="hidden" name="table" value="<?=$do;?>">
-                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?=$do;?>.php?table=<?=$do;?>')" value="新增動態文字廣告"></td>
+                    <input type="hidden" name="table" value="<?= $do; ?>">
+                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增動態文字廣告"></td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
                 </tr>
             </tbody>
