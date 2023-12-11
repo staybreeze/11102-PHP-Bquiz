@@ -11,19 +11,27 @@
                     <td width="10%">刪除</td>
                 </tr>
                 <?php
+                // 分頁
+                $total = $DB->count();
+                $div = 5;
+                $pages = ceil($total / $div);
+                $now = $_GET['p'] ?? 1;
+                $start = ($now - 1) * $div;
+
+
                 // 先從資料庫撈資料
                 // $DB=${ucfirst($do)};->已在DB設變數，因此可刪
-                $rows=$DB->all();
+                $rows = $DB->all("limit $start,$div");
                 // $rows = $Ad->all();
                 foreach ($rows as $row) {
                 ?>
                     <tr>
                         <td>
-                        <!-- 
+                            <!-- 
                             $_POST['text'][0] => "Some value 1"
                             $_POST['text'][1] => "Some value 2" 
                         -->
-                        <!-- textarea不要斷行 -->
+                            <!-- textarea不要斷行 -->
                             <textarea type="text" name="text[<?= $row['id']; ?>]" style="width:90%;height:60px" value=""><?= $row['text']; ?></textarea>
                         </td>
                         <td>
@@ -33,7 +41,7 @@
                             -->
 
                             <!-- 生成一個checked的陣列 -->
-                            
+
                             <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
                         </td>
                         <td>
@@ -45,6 +53,41 @@
                 ?>
             </tbody>
         </table>
+
+        <div class="cent">
+            <!--
+         <a href="http://">1</a>
+         <a href="http://">2</a>
+          <a href="http://">3</a>
+         <a href="http://">4</a> 
+        -->
+            <?php
+            if ($now > 1) {
+
+                // echo "<a href='do=news&p=" . ($now - 1) . "'><</a>";
+
+                $prev = $now - 1;
+                echo "<a href='?do=news&p=$prev'> < </a> ";
+            }
+
+            // 當前頁放大字型
+            for ($i = 1; $i <= $pages; $i++) {
+                $fontsize = ($now == $i) ? '24px' : '16px';
+
+                echo "<a href='?do=news&p=$i' style='font-size:$fontsize'>$i&nbsp;</a>";
+            }
+
+            if ($now <$pages) {
+
+     
+
+                $next = $now + 1;
+                echo "<a href='?do=news&p=$next'> > </a> ";
+            }
+            ?>
+
+        </div>
+
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
