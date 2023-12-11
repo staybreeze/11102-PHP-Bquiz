@@ -20,14 +20,15 @@
                         <!-- 在update.php，已經 $row['img']=$_FILES['img']['name']; -->
                         <img src="./img/<?=$row['img'];?>" style="width:150;height:120px">
                     </td>
-
+<input type="hidden"  name="id[]" value="<?=$row['id'];?>">
                     <td>
-                        <!-- 這邊TITLE只能顯示一個，所以非sh[] -->
+                     
                         <input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>>
                     </td>
                     <td>
                     <input type="checkbox" name="del[]" value="<?=$row['id'];?>">
                     </td>
+            
                     <td>
                         <!-- GET傳值 -->
                         <!-- 更新圖片是modal/upload轉update -->
