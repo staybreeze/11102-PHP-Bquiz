@@ -13,15 +13,23 @@
                 </tr>
                 <?php
              
-                // $DB=${ucfirst($do)};->已在DB設變數，因此可刪
-                $rows = $DB->all();
+             $total = $DB->count();
+             $div = 3;
+             $pages = ceil($total / $div);
+             $now = $_GET['p'] ?? 1;
+             $start = ($now - 1) * $div;
+
+
+             // 先從資料庫撈資料
+             // $DB=${ucfirst($do)};->已在DB設變數，因此可刪
+             $rows = $DB->all("limit $start,$div");
                 // $rows = $Image->all();
                 foreach ($rows as $row) {
                 ?>
                     <tr>
                         <td>
                             <!-- 在update.php，已經 $row['img']=$_FILES['img']['name']; -->
-                            <img src="./img/<?= $row['img']; ?>" style="width:150;height:120px">
+                            <img src="./img/<?= $row['img']; ?>" style="width:100px;height:68px">
                         </td>
                         <!-- 無TEXT的頁面，多加一個傳ID的按鈕，以便edit.php跑判斷式 -->
                         <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
@@ -44,6 +52,39 @@
                 ?>
             </tbody>
         </table>
+        <div class="cent">
+            <!--
+         <a href="http://">1</a>
+         <a href="http://">2</a>
+          <a href="http://">3</a>
+         <a href="http://">4</a> 
+        -->
+            <?php
+            if ($now > 1) {
+
+                // echo "<a href='do=image&p=" . ($now - 1) . "'><</a>";
+
+                $prev = $now - 1;
+                echo "<a href='?do=$do&p=$prev'> < </a> ";
+            }
+
+            // 當前頁放大字型
+            for ($i = 1; $i <= $pages; $i++) {
+                $fontsize = ($now == $i) ? '24px' : '16px';
+
+                echo "<a href='?do=$do&p=$i' style='font-size:$fontsize'>$i&nbsp;</a>";
+            }
+
+            if ($now <$pages) {
+
+     
+
+                $next = $now + 1;
+                echo "<a href='?do=$do&p=$next'> > </a> ";
+            }
+            ?>
+
+        </div>
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>

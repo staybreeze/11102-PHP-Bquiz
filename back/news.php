@@ -64,17 +64,17 @@
             <?php
             if ($now > 1) {
 
-                // echo "<a href='do=news&p=" . ($now - 1) . "'><</a>";
+                // echo "<a href='do=$do&p=" . ($now - 1) . "'><</a>";
 
                 $prev = $now - 1;
-                echo "<a href='?do=news&p=$prev'> < </a> ";
+                echo "<a href='?do=$do&p=$prev'> < </a> ";
             }
 
             // 當前頁放大字型
             for ($i = 1; $i <= $pages; $i++) {
                 $fontsize = ($now == $i) ? '24px' : '16px';
 
-                echo "<a href='?do=news&p=$i' style='font-size:$fontsize'>$i&nbsp;</a>";
+                echo "<a href='?do=$do&p=$i' style='font-size:$fontsize'>$i&nbsp;</a>";
             }
 
             if ($now <$pages) {
@@ -82,7 +82,7 @@
      
 
                 $next = $now + 1;
-                echo "<a href='?do=news&p=$next'> > </a> ";
+                echo "<a href='?do=$do&p=$next'> > </a> ";
             }
             ?>
 
