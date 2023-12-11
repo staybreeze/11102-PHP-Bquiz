@@ -19,13 +19,10 @@
                 ?>
                     <tr>
                         <td>
-                        <!-- 
-                            $_POST['text'][0] => "Some value 1"
-                            $_POST['text'][1] => "Some value 2" 
-                        -->
-                            <input type="text" name="acc[]" style="width:90%" value="<?= $row['text']; ?>">
+    
+                        <input type="text" name="acc[]" style="width:90%" value="<?=$row['acc'];?>">
                         </td>
-                        <input type="hidden" name="id[]" value="<?= $row['text']; ?>">
+                        <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                         <td>
                             <!-- 
                                 $_POST['sh'][0] => "1"
@@ -34,10 +31,10 @@
 
                             <!-- 生成一個checked的陣列 -->
                             
-                            <input type="password" name="pw[]" value="<?= $row['id']; ?>" >
+                            <input type="password" name="pw[]" value="<?=$row['pw'];?>">
                         </td>
                         <td>
-                            <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
+                        <input type="checkbox" name="del[]" value="<?=$row['id'];?>">
                         </td>
                     </tr>
                 <?php

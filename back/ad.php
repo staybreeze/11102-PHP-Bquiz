@@ -19,12 +19,10 @@
                 ?>
                     <tr>
                         <td>
-                        <!-- 
-                            $_POST['text'][0] => "Some value 1"
-                            $_POST['text'][1] => "Some value 2" 
-                        -->
-                            <input type="text" name="text[<?= $row['id']; ?>]" style="width:90%" value="<?= $row['text']; ?>">
-                        </td>
+         
+                        <input type="text" name="text[]" style="width:90%" value="<?=$row['text'];?>">
+                        <input type="hidden" name="id[]" value="<?=$row['id'];?>">
+                    </td>
                         <td>
                             <!-- 
                                 $_POST['sh'][0] => "1"

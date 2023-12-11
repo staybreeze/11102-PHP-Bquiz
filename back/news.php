@@ -27,12 +27,10 @@
                 ?>
                     <tr>
                         <td>
-                            <!-- 
-                            $_POST['text'][0] => "Some value 1"
-                            $_POST['text'][1] => "Some value 2" 
-                        -->
+
                             <!-- textarea不要斷行 -->
-                            <textarea type="text" name="text[<?= $row['id']; ?>]" style="width:90%;height:60px" value=""><?= $row['text']; ?></textarea>
+                            <textarea type="text" name="text[]" style="width:90%;height:60px" value=""><?= $row['text']; ?></textarea>
+                            <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                         </td>
                         <td>
                             <!-- 
