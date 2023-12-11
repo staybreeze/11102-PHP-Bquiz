@@ -12,7 +12,9 @@
                 </tr>
                 <?php
                 // 先從資料庫撈資料
-                $rows = $Ad->all();
+                // $DB=${ucfirst($do)};->已在DB設變數，因此可刪
+                $rows=$DB->all();
+                // $rows = $Ad->all();
                 foreach ($rows as $row) {
                 ?>
                     <tr>

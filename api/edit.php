@@ -7,15 +7,14 @@ $DB=${ucfirst($table)};
 // 從HIDDEN隨POST傳值過來的TABLE要關掉，以便項目跟資料庫對得起來
 unset($_POST['table']);
 
-
-
 if(isset($_POST['id'])){
-        // 塞進去$_POST['text']
+    // 塞進去$_POST['text']
 // $_POST['text']=[1=>'',]
-    foreach($_POST['id'] as $id){
-        $_POST['text'][$id]='';
-    }
-}
+foreach($_POST['id'] as $id){
+    $_POST['text'][$id]='';
+
+}}
+
 
 
 // 因為會傳過來多筆不同型態的資料，所以用foreach
