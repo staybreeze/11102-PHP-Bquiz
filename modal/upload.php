@@ -1,11 +1,41 @@
 <!-- 更新圖片 -->
+<?php
+switch($_GET['table']){
+case "title":
 
-<h3>更新網站標題圖片</h3>
+  echo "<h3>更新網站標題圖片</h3>";
+    break;
+
+    case "mvim":
+        echo "<h3>更換動畫圖片</h3>";
+        break;
+        case "image":
+            echo "<h3>更新校園映像圖片</h3>";
+            break;
+}
+?>
+
+
 <hr>
 <form action="./api/update.php" method="post" enctype="multipart/form-data">
 <table>
     <tr>
-        <td>標題區圖片</td>
+    <?php
+switch($_GET['table']){
+case "title":
+
+  echo "<h3>網站標題圖片</h3>";
+    break;
+
+    case "mvim":
+        echo "<h3>動畫圖片</h3>";
+        break;
+        case "image":
+            echo "<h3>校園映像圖片</h3>";
+            break;
+}
+
+?>
         <td><input type="file" name="img" id=""></td>
     </tr>
 </table>

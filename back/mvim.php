@@ -18,7 +18,7 @@
                 <tr>
                     <td>
                         <!-- 在update.php，已經 $row['img']=$_FILES['img']['name']; -->
-                        <img src="./img/<?=$row['img'];?>" style="width:300px;height:30px">
+                        <img src="./img/<?=$row['img'];?>" style="width:150;height:120px">
                     </td>
 
                     <td>
