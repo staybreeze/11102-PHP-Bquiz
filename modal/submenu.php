@@ -1,4 +1,7 @@
-<h3>新增次選單</h3>
+<!-- 在獨立的環境中運行，並且不共享當前頁面的變數或上下文 -->
+<!-- JS是直接在客戶端執行，如果要在JS執行AJAX(在伺服器端執行)，需要獨立載入DB檔 -->
+<?php include_once "../api/db.php";?>
+<h3>編輯次選單</h3>
 <hr>
 <form action="./api/submenu.php" method="post" enctype="multipart/form-data">
 <table class='cent'>
@@ -7,12 +10,23 @@
         <td>次選單連結網址</td>
         <td>刪除</td>
     </tr>
+    <?php
+    $subs=$Menu->all(['menu_id'=>$_GET['id']]);
+    foreach($subs as $sub){
+    ?>
+    <tr>
+        <td><input type="text" name="text[]" value="<?=$sub['text'];?>"></td>
+        <td><input type="text" name="href[]" value="<?=$sub['href'];?>"></td>
+        <td><input type="checkbox" name="del[]" value="<?=$sub['id'];?>"></td>
+        <input type="hidden" name="id[]" value="">
+    </tr>
+    <?php
+    }
+    ?>
     <tr>
         <td><input type="text" name="text[]" id=""></td>
         <td><input type="text" name="href[]" id=""></td>
-        <td><input type="checkbox" name="del[]" id=""></td>
     </tr>
-
 </table>
 <div>
     <input type="hidden" name="table" value="<?=$_GET['table'];?>">
@@ -22,3 +36,16 @@
 </div>
 
 </form>
+<script>
+
+function more(){
+    let item=`<tr>
+                <td><input type="text" name="text[]" id=""></td>
+                <td><input type="text" name="href[]" id=""></td>
+              </tr>`
+
+    $("#xxx").append(item);
+
+}
+
+</script>
