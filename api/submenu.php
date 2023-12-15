@@ -19,6 +19,7 @@ if(isset($_POST['id'])){
 
 if(isset($_POST['add_text'])){
     foreach($_POST['add_text'] as $idx =>$text){
+        if($text!=""){
         // 先告新陣列
         $data=[];
         $data['text']=$text;
@@ -27,7 +28,7 @@ if(isset($_POST['add_text'])){
         $data['menu_id']=$_POST['menu_id'];
 
         $Menu->save($data);
-    }
+    }}
 }
 
 to("../back.php?do=menu");
