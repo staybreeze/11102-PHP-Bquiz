@@ -162,35 +162,35 @@ $Admin = new DB('admin');
 $Menu = new DB('menu');
 
 
-// 方法一
-$tables = [
+// // 方法一
+// $tables = [
 
-    'titles',
-    'total',
-    'bottom',
-    'ad',
-    'mvim',
-    'image',
-    'news',
-    'admin',
-    'menu'
-];
+//     'titles',
+//     'total',
+//     'bottom',
+//     'ad',
+//     'mvim',
+//     'image',
+//     'news',
+//     'admin',
+//     'menu'
+// ];
 
-if (isset($_GET['do'])) {
-    // 處理管理登入時跑出 Undefined variable $Login之問題
-    if (in_array($_GET['do'], $tables)) {
+// if (isset($_GET['do'])) {
+//     // 處理管理登入時跑出 Undefined variable $Login之問題
+//     if (in_array($_GET['do'], $tables)) {
 
-        $DB = ${ucfirst($_GET['do'])};
-    }
-} else {
-    $DB = $Title;
-}
+//         $DB = ${ucfirst($_GET['do'])};
+//     }
+// } else {
+//     $DB = $Title;
+// }
 
 
 // // 方法二
 
 // $tables=array_keys(get_defined_vars());
-// /* dd($tables); */
+// //  dd($tables); 
 // if(isset($_GET['do'])){
 //     $key=ucfirst($_GET['do']);
 //     if(in_array($key,$tables)){
@@ -199,3 +199,24 @@ if (isset($_GET['do'])) {
 // }else{
 //     $DB=$Title;
 // }
+
+// echo "<pre>";
+// print_r ($DB);
+// echo "</pre>";
+
+
+// 方法三
+//$tables=array_keys(get_defined_vars());
+/* dd($tables); */
+if(isset($_GET['do'])){
+    //$key=ucfirst($_GET['do']);
+    
+    if(isset(${ucfirst($_GET['do'])})){
+        $DB=${ucfirst($_GET['do'])};
+    }
+    /* if(in_array($key,$tables)){
+        $DB=$$key;
+    } */
+}else{
+    $DB=$Title;
+}
