@@ -44,7 +44,7 @@ function more(){
                 <td><input type="text" name="add_text[]" id=""></td>
                 <td><input type="text" name="add_href[]" id=""></td>
               </tr>`
-
+            //   將指定的內容插入到選擇元素的末尾
     $("#sub").append(item);
 
 }
