@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-12-11 08:47:40
+-- 產生時間： 2024-01-05 09:04:23
 -- 伺服器版本： 10.4.28-MariaDB
 -- PHP 版本： 8.0.28
 
@@ -136,8 +136,14 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id`, `text`, `href`, `sh`, `menu_id`) VALUES
-(2, '灣師大合辦第11屆麋研齋全國硬筆書法比賽活動', '546', 0, 0),
-(3, '54564', 'index', 1, 0);
+(3, '安安', '7777', 1, 0),
+(4, '54564', 'index', 1, 0),
+(5, '照片A', 'index', 1, 0),
+(10, '8749', '8888', 1, 0),
+(22, '安安安安', '8888', 1, 3),
+(23, '安安', '安安', 1, 10),
+(24, '56456', '', 1, 3),
+(25, '安安安安', '安安安安', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -156,7 +162,7 @@ CREATE TABLE `mvim` (
 --
 
 INSERT INTO `mvim` (`id`, `img`, `sh`) VALUES
-(1, '01C01.gif', 0),
+(1, '01C01.gif', 1),
 (4, '01C04.gif', 1);
 
 -- --------------------------------------------------------
@@ -225,7 +231,7 @@ CREATE TABLE `total` (
 --
 
 INSERT INTO `total` (`id`, `total`) VALUES
-(1, 12347);
+(1, 1002);
 
 --
 -- 已傾印資料表的索引
@@ -329,7 +335,7 @@ ALTER TABLE `image`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `mvim`
