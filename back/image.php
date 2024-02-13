@@ -19,7 +19,6 @@
              $now = $_GET['p'] ?? 1;
              $start = ($now - 1) * $div;
 
-
              // 先從資料庫撈資料
              // $DB=${ucfirst($do)};->已在DB設變數，因此可刪
              $rows = $DB->all("limit $start,$div");
