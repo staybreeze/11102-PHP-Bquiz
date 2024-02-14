@@ -12,7 +12,7 @@ class DB{
     {
         $this->table=$table;
         //$this->pdo=new PDO($this->dsn,'s1120401','s1120401');
-        $this->pdo=new PDO($this->dsn,'root','');
+        $this->pdo=new PDO($this->dsn,'wsl','19910317');
     }
 
 
